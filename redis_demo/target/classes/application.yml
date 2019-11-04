@@ -1,0 +1,31 @@
+# 端口配置
+server:
+  port: 8080
+
+eureka:
+  client:
+    service-url:
+      fetch-registry: false
+      defaultZone: http://localhost:7001/eureka/
+  instance:
+    instance-id: springcloud-redis-8080   # 修改主机名称（区别于服务名称）
+    prefer-ip-address: true
+    
+    
+#redis配置
+spring:
+  application:
+    name: service-redis  # 服务名字
+  redis:
+    host: 127.0.0.1           # 服务器地址
+    port: 6379                # 服务端口号
+    database: 0               # 数据库索引
+    password:                 # 服务器连接密码默认为空
+    jedis:
+      pool:
+        max-active: 50  # 连接池最大连接数
+        max-wait: 3000  # 连接池最大阻塞等待时间
+        max-idle: 20    # 连接池中最大的空闲连接
+        min-idle: 2     # 连接池中最小的空闲连接
+    timeout: 5000       # 连接超时时间
+
